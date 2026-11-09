@@ -1,4 +1,5 @@
 const express = require("express");
+// nosemgrep: javascript.express.security.audit.express-check-csurf-middleware-usage.express-check-csurf-middleware-usage -- API sin cookies ni sesiones: CSRF no aplica
 const app = express();
 const total = (precio, cant, desc) =>
   precio * cant * (1 - desc);
