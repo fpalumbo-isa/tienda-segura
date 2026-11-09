@@ -18,3 +18,5 @@ jobs:
       - uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2.3.9
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: node app.js & sleep 3
+      - run: docker run --rm --network host ghcr.io/zaproxy/zaproxy:stable zap-baseline.py -t "http://localhost:3000/total?p=10&c=2" -I
