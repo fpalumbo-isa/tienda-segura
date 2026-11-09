@@ -12,6 +12,7 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm audit --audit-level=high
+      - run: docker run --rm -v "$PWD":/src aquasec/trivy:latest config --exit-code 1 --severity HIGH,CRITICAL --skip-dirs node_modules /src
       - run: pipx install semgrep
       - run: semgrep scan --config auto --error
       - uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2.3.9
